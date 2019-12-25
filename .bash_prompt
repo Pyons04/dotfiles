@@ -1,0 +1,7 @@
+function git_branch() {
+    s=$(git branch --no-color 2>/dev/null | sed -ne "s/^\* \(.*\)$//p")
+      if [ ! "$s" = "" ]; then
+            echo $s
+              fi
+}
+export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '

@@ -115,3 +115,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# export LANG=ja_JP.utf8 This option broke your vim settings! 
+export LANG=en_US.UTF-8
+source ~/dotfiles/.bash_prompt # for show git branch
