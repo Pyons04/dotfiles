@@ -118,3 +118,4 @@ fi
 # export LANG=ja_JP.utf8 This option broke your vim settings! 
 export LANG=en_US.UTF-8
 source ~/dotfiles/.bash_prompt # for show git branch
+cd /mnt/c/Users/broad/OneDrive/products

@@ -41,7 +41,7 @@
 "
 "
 " " Tab系
-" " 不可視文字を可視化(タブが「▸-」と表示される)
+" 不可視文字を可視化(タブが「▸-」と表示される)
 " set list listchars=tab:\▸\-
 " " Tab文字を半角スペースにする
  set expandtab
@@ -99,7 +99,9 @@ if &compatible
     NeoBundle 'scrooloose/nerdtree' " ファイルツリー表示
     NeoBundle 'tpope/vim-endwise' " Ruby用end補完
     NeoBundle 'neoclide/coc.nvim', 'release', { 'build': { 'others': 'git checkout release' } }
-    NeoBundle 'vim-airline/vim-airline'
+    NeoBundle 'itchyny/lightline.vim'
+    NeoBundle 'airblade/vim-gitgutter'
+    " NeoBundle 'vim-airline/vim-airline'
     " to use coc.vim, :CocInstall coc-solargraph and gem install solargraph
     " required.
 
@@ -137,16 +139,30 @@ set t_Co=256
 let &t_AB="\e[48;5;%dm"
 let &t_AF="\e[38;5;%dm"
 set termguicolors
+set noshowmode
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#tagbar#flags = 'f'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#empty_message = ''
-let g:airline#extensions#branch#displayed_head_limit = 10
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline_theme = 'dark'
-
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'absolutepath', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tagbar#enabled = 1
+"let g:airline#extensions#tagbar#flags = 'f'
+"let g:airline#extensions#branch#enabled = 1
+"let g:airline#extensions#branch#empty_message = ''
+"let g:airline#extensions#branch#displayed_head_limit = 10
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#virtualenv#enabled = 1
+"let g:airline#extensions#ale#enabled = 1
+"let g:airline_theme = 'dark'
+"imap <M-h> <Left> 
+"imap <M-j> <Down> 
+"imap <M-k> <Up>
+"imap <M-l> <Right>
 "set term=builtin_ansi
