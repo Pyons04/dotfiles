@@ -81,10 +81,10 @@ if &compatible
     endif
 
     " Required:
-    set runtimepath+=/home/pyons/.vim/bundle/neobundle.vim/
+    set runtimepath+=/home/sueda/.vim/bundle/neobundle.vim
 
     " Required:
-    call neobundle#begin(expand('/home/pyons/.vim/bundle'))
+    call neobundle#begin(expand('/home/sueda/.vim/bundle'))
 
     " Let NeoBundle manage NeoBundle
     " Required:
@@ -101,6 +101,9 @@ if &compatible
     NeoBundle 'neoclide/coc.nvim', 'release', { 'build': { 'others': 'git checkout release' } }
     NeoBundle 'itchyny/lightline.vim'
     NeoBundle 'airblade/vim-gitgutter'
+    NeoBundle 'jistr/vim-nerdtree-tabs'
+    NeoBundle 'ngmy/vim-rubocop'
+    NeoBundle 'scrooloose/syntastic.git'
     " NeoBundle 'vim-airline/vim-airline'
     " to use coc.vim, :CocInstall coc-solargraph and gem install solargraph
     " required.
@@ -140,6 +143,18 @@ let &t_AB="\e[48;5;%dm"
 let &t_AF="\e[38;5;%dm"
 set termguicolors
 set noshowmode
+set backspace=indent,eol,start
+
+"rubocop settings 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ruby_checkers=['rubocop', 'mri']
+"rubocop settings end
 
 let g:lightline = {
       \ 'colorscheme': 'powerline',
@@ -151,6 +166,9 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+
+map <C-e> <plug>NERDTreeTabsToggle<CR>
+nnoremap <C-t> :tabnew<CR>
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tagbar#enabled = 1
 "let g:airline#extensions#tagbar#flags = 'f'
