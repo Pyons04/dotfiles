@@ -81,10 +81,10 @@ if &compatible
     endif
 
     " Required:
-    set runtimepath+=/home/sueda/.vim/bundle/neobundle.vim
+    set runtimepath+=/home/pyons/.vim/bundle/neobundle.vim
 
     " Required:
-    call neobundle#begin(expand('/home/sueda/.vim/bundle'))
+    call neobundle#begin(expand('/home/pyons/.vim/bundle'))
 
     " Let NeoBundle manage NeoBundle
     " Required:
@@ -104,6 +104,8 @@ if &compatible
     NeoBundle 'jistr/vim-nerdtree-tabs'
     NeoBundle 'ngmy/vim-rubocop'
     NeoBundle 'scrooloose/syntastic.git'
+    NeoBundle 'kana/vim-operator-user'
+    NeoBundle 'haya14busa/vim-operator-flashy'
     " NeoBundle 'vim-airline/vim-airline'
     " to use coc.vim, :CocInstall coc-solargraph and gem install solargraph
     " required.
@@ -169,6 +171,9 @@ let g:lightline = {
 
 map <C-e> <plug>NERDTreeTabsToggle<CR>
 nnoremap <C-t> :tabnew<CR>
+
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tagbar#enabled = 1
 "let g:airline#extensions#tagbar#flags = 'f'
