@@ -81,10 +81,10 @@ if &compatible
     endif
 
     " Required:
-    set runtimepath+=/home/pyons/.vim/bundle/neobundle.vim
+    set runtimepath+=/home/sueda/.vim/bundle/neobundle.vim
 
     " Required:
-    call neobundle#begin(expand('/home/pyons/.vim/bundle'))
+    call neobundle#begin(expand('/home/sueda/.vim/bundle'))
 
     " Let NeoBundle manage NeoBundle
     " Required:
@@ -106,6 +106,7 @@ if &compatible
     NeoBundle 'scrooloose/syntastic.git'
     NeoBundle 'kana/vim-operator-user'
     NeoBundle 'haya14busa/vim-operator-flashy'
+    NeoBundle 'slim-template/vim-slim'
     " NeoBundle 'vim-airline/vim-airline'
     " to use coc.vim, :CocInstall coc-solargraph and gem install solargraph
     " required.
